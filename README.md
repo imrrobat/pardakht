@@ -25,7 +25,7 @@ pip install pardakht
 ### 1️⃣ Import and Initialize
 
 ```python
-from pardakht.bot_payment import ZarinPalBot
+from pardakht.dargah import ZarinPal
 
 # Settings
 MERCHANT_ID = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"

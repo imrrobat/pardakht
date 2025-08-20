@@ -1,6 +1,6 @@
 import requests as rq
 
-class ZarinPalBot:
+class ZarinPal:
     def __init__(self, merchant_id, callback_url, sandbox=True):
         self.merchant_id = merchant_id
         self.callback_url = callback_url
