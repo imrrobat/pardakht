@@ -1,13 +1,9 @@
 # Pardakht 🏦
 
 **Pardakht** is a simple Python library to integrate bots or applications with payment gateways.
-Currently, it supports **ZarinPal** and is designed for **Telegram bots**.
+Currently, it just supports **ZarinPal**.
 
 ![Downloads](https://static.pepy.tech/personalized-badge/pardakht?period=total&units=international_system&left_color=grey&right_color=blue)
-
-
-> ⚡ Coming soon: Support for web applications and other platforms.
-> For now, you can use it directly in your bot projects.
 
 
 ---

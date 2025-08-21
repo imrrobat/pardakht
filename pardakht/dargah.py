@@ -1,7 +1,7 @@
 import requests as rq
 
 class ZarinPal:
-    def __init__(self, merchant_id, callback_url, sandbox=True):
+    def __init__(self, merchant_id, callback_url, sandbox=False):
         self.merchant_id = merchant_id
         self.callback_url = callback_url
         self.sandbox = sandbox
