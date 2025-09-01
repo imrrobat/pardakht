@@ -43,3 +43,47 @@ class ZarinPal:
         else:
             return {"success": False, "ref_id": None, "message": "Payment failed"}
 
+
+class PayPing:
+    BASE_URL = "https://api.payping.ir/v3/pay"
+
+    def __init__(self, api_key: str):
+        self.api_key = api_key
+        self.headers = {
+            "Authorization": f"Bearer {self.api_key}",
+            "Content-Type": "application/json"
+        }
+
+    def create_payment(self, amount: int, return_url: str, payer_identity: str = "",
+                       payer_name: str = "", description: str = "", client_ref_id: str = "",
+                       national_code: str = "", is_reversible: bool = True) -> dict:
+        """
+        Create a payment request.
+        """
+        payload = {
+            "amount": amount,
+            "returnUrl": return_url,
+            "payerIdentity": payer_identity,
+            "payerName": payer_name,
+            "description": description,
+            "clientRefId": client_ref_id,
+            "nationalCode": national_code,
+            "isReversible": is_reversible
+        }
+
+        response = rq.post(self.BASE_URL, json=payload, headers=self.headers)
+        return response.json()
+
+    def start_payment(self, payment_code: str) -> str:
+        """
+        Get the redirect URL to start the payment.
+        """
+        return f"{self.BASE_URL}/start/{payment_code}"
+
+    def verify_payment(self, ref_id: str, payment_code: str) -> dict:
+        """
+        Verify the payment after returning from the gateway.
+        """
+        url = f"{self.BASE_URL}/paid/{ref_id}/{payment_code}"
+        response = rq.get(url, headers=self.headers)
+        return response.json()

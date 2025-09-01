@@ -1,6 +1,6 @@
 [project]
 name = "pardakht"
-version = "0.1.2"
+version = "0.2.0"
 description = "A simple Python package to integrate bots or apps with payment gateways like ZarinPal."
 authors = [
     { name="Ali Heydari", email="imrrobat@gmail.com" }
